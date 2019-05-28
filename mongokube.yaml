@@ -1,0 +1,9 @@
+apiVersion: kubedb.com/v1alpha1
+kind: MongoDB
+metadata:
+  name: mgo-quickstart
+  namespace: demo
+spec:
+  version: "3.4-v3"
+  storageType: Ephemeral
+  terminationPolicy: WipeOut
