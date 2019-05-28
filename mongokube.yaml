@@ -1,9 +1,17 @@
 apiVersion: kubedb.com/v1alpha1
 kind: MongoDB
 metadata:
-  name: mgo-quickstart
+  name: mgo-replicaset
   namespace: demo
 spec:
-  version: "3.4-v3"
-  storageType: Ephemeral
-  terminationPolicy: WipeOut
+  version: "4.1.7-v1"
+  replicas: 3
+  replicaSet:
+    name: rs0
+  storage:
+    storageClassName: "managed-premium-retain"
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: 20Gi
